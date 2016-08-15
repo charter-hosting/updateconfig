@@ -7,12 +7,12 @@ touch wpupdate.log
 
 echo "Writing update script to file"
 cat <<'EOF' >wpupdate.sh
-#!/bin/bash
+!/bin/bash
 timestamp() {
   date "+DATE: %D TIME: %r %Z"
 }
 
-timestamp
+#timestamp
 wp theme update --all
 wp plugin update --all
 wp core language update
@@ -26,13 +26,16 @@ chmod +x wpupdate.sh
 
 echo "Setting .htaccess rule to block direct access to update log and script file"
 echo
+
 touch .htaccess
-echo "" >> .htaccess
+
+echo "# START Deny access to wpupdate files" >> .htaccess
 echo "<FilesMatch \"wpupdate\.log|wpupdate\.sh\">" >> .htaccess
 echo "Order Allow,Deny" >> .htaccess
 echo "Allow from 127.0.0.1" >> .htaccess
 echo "Deny from all" >> .htaccess
 echo "</FilesMatch>" >> .htaccess
+echo "# END Deny access to wpupdate files" >> .htaccess
 echo
 echo "***********************"
 echo "CONFIGURATION COMPLETE!"
