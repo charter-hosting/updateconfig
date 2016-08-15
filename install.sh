@@ -28,9 +28,9 @@ echo "Order Allow,Deny" >> .htaccess
 echo "Allow from 127.0.0.1" >> .htaccess
 echo "Deny from all" >> .htaccess
 echo "</FilesMatch>" >> .htaccess
-
-echo "Configuration Complete!
-echo "Don't forget to update the wp-config.php file to use TCP.
+echo
+echo "Configuration Complete!"
+echo "Don't forget to update the wp-config.php file to use TCP"
 echo
 echo "/** Tell WP-CLI to use TCP instead of socket connection */"
 echo "if ( defined( 'WP_CLI' ) && WP_CLI ) {"
@@ -40,4 +40,4 @@ echo "} else {"
 echo "/** MySQL hostname */"
 echo "('DB_HOST', 'localhost'); }"
 
-exit
+exit 0
