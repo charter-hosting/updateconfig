@@ -21,6 +21,9 @@ wp core update
 exit 0
 EOF
 
+echo "Giving update script execute permission"
+chmod +x wpupdate.sh
+
 echo "Setting .htaccess rule to block direct access to update log and script file"
 echo
 touch .htaccess
@@ -39,8 +42,13 @@ echo "} else {"
 echo "/** MySQL hostname */"
 echo "('DB_HOST', 'localhost'); }"
 echo
-echo "Configuration Complete!"
-echo "Don't forget to update the wp-config.php file with the code above"
+echo "***********************"
+echo "CONFIGURATION COMPLETE!"
+echo "***********************"
+echo
+echo "Don't forget to:"
+echo "1. Update the wp-config.php file with the code above"
+echo "2. Set a cron to run 33 */12 * * * /web/wpupdate.sh >> /web/wpupdate.log"
 echo
 
 exit 0
