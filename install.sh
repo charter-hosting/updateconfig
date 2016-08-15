@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /web/test
+cd /web
 
 echo "Creating log file wpupdate.log"
 touch wpupdate.log
@@ -42,4 +42,5 @@ echo
 echo "Configuration Complete!"
 echo "Don't forget to update the wp-config.php file with the code above"
 echo
+
 exit 0
