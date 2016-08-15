@@ -22,11 +22,14 @@ exit 0
 EOF
 
 echo "Setting .htaccess rule to block direct access to update log and script file"
+touch .htaccess
 echo "<FilesMatch \"wpupdate\.log|wpupdate\.sh\">" >> .htaccess
 echo "Order Allow,Deny" >> .htaccess
 echo "Allow from 127.0.0.1" >> .htaccess
 echo "Deny from all" >> .htaccess
 echo "</FilesMatch>" >> .htaccess
+
+echo ""
 
 echo "Configuration Complete!
 echo "Don't forget to update the wp-config.php file to use TCP.
@@ -39,4 +42,4 @@ echo "} else {"
 echo "/** MySQL hostname */"
 echo "('DB_HOST', 'localhost'); }"
 
-exit 0
+exit
