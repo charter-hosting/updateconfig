@@ -33,7 +33,14 @@ echo "Order Allow,Deny" >> .htaccess
 echo "Allow from 127.0.0.1" >> .htaccess
 echo "Deny from all" >> .htaccess
 echo "</FilesMatch>" >> .htaccess
-
+echo
+echo "***********************"
+echo "CONFIGURATION COMPLETE!"
+echo "***********************"
+echo
+echo "Don't forget to:"
+echo "- 1. Update the wp-config.php file with the code below"
+echo
 echo "/** Tell WP-CLI to use TCP instead of socket connection */"
 echo "if ( defined( 'WP_CLI' ) && WP_CLI ) {"
 echo "/** MySQL hostname for WP-CLI */"
@@ -42,13 +49,7 @@ echo "} else {"
 echo "/** MySQL hostname */"
 echo "('DB_HOST', 'localhost'); }"
 echo
-echo "***********************"
-echo "CONFIGURATION COMPLETE!"
-echo "***********************"
-echo
-echo "Don't forget to:"
-echo "1. Update the wp-config.php file with the code above"
-echo "2. Set a cron to run 33 */12 * * * /web/wpupdate.sh >> /web/wpupdate.log"
+echo "- 2. Set a cron to run 33 */12 * * * /web/wpupdate.sh >> /web/wpupdate.log"
 echo
 
 exit 0
