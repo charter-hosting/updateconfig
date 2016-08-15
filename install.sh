@@ -30,15 +30,20 @@ cat <<EOF >.htaccess
 </FilesMatch>
 EOF
 
-echo Configuration complete!
-echo Don't forget to update the wp-config.php file to use TCP.
-echo
-echo /** Tell WP-CLI to use TCP instead of socket connection */
-echo if ( defined( 'WP_CLI' ) && WP_CLI ) {
-echo /** MySQL hostname for WP-CLI */
-echo define('DB_HOST', '127.0.0.1:3306');
-echo } else {
-echo /** MySQL hostname */
-echo define('DB_HOST', 'localhost'); }
+echo Creating sample data wp-config-data.txt file
+cat <<EOF >wp-config-data.txt
+/** Tell WP-CLI to use TCP instead of socket connection */
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+/** MySQL hostname for WP-CLI */
+define('DB_HOST', '127.0.0.1:3306');
+} else {
+/** MySQL hostname */
+('DB_HOST', 'localhost'); }
+EOF
 
+chmod 0644 wp-config-data.txt
+
+echo Configuration Complete!
+echo Don't forget to update the wp-config.php file to use TCP.
+echo Sample data in the wp-config-data.txt
 exit 0
