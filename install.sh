@@ -22,16 +22,15 @@ exit 0
 EOF
 
 echo "Setting .htaccess rule to block direct access to update log and script file"
+echo
 touch .htaccess
+echo "" >> .htaccess
 echo "<FilesMatch \"wpupdate\.log|wpupdate\.sh\">" >> .htaccess
 echo "Order Allow,Deny" >> .htaccess
 echo "Allow from 127.0.0.1" >> .htaccess
 echo "Deny from all" >> .htaccess
 echo "</FilesMatch>" >> .htaccess
-echo
-echo "Configuration Complete!"
-echo "Don't forget to update the wp-config.php file to use TCP"
-echo
+
 echo "/** Tell WP-CLI to use TCP instead of socket connection */"
 echo "if ( defined( 'WP_CLI' ) && WP_CLI ) {"
 echo "/** MySQL hostname for WP-CLI */"
@@ -39,5 +38,8 @@ echo "define('DB_HOST', '127.0.0.1:3306');"
 echo "} else {"
 echo "/** MySQL hostname */"
 echo "('DB_HOST', 'localhost'); }"
-
+echo
+echo "Configuration Complete!"
+echo "Don't forget to update the wp-config.php file with the code above"
+echo
 exit 0
