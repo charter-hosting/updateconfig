@@ -6,7 +6,7 @@ echo "Creating log file wpupdate.log"
 touch wpupdate.log
 
 echo "Writing update script to file"
-cat <<EOF >wpupdate.sh
+cat <<'EOF' >wpupdate.sh
 #!/bin/bash
 timestamp() {
   date "+DATE: %D TIME: %r %Z"
@@ -28,8 +28,6 @@ echo "Order Allow,Deny" >> .htaccess
 echo "Allow from 127.0.0.1" >> .htaccess
 echo "Deny from all" >> .htaccess
 echo "</FilesMatch>" >> .htaccess
-
-echo ""
 
 echo "Configuration Complete!
 echo "Don't forget to update the wp-config.php file to use TCP.
