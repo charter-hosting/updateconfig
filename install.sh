@@ -12,7 +12,7 @@ timestamp() {
   date "+DATE: %D TIME: %r %Z"
 }
 
-#timestamp
+timestamp
 wp theme update --all
 wp plugin update --all
 wp core language update
