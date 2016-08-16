@@ -50,7 +50,7 @@ echo "/** MySQL hostname for WP-CLI */"
 echo "define('DB_HOST', '127.0.0.1:3306');"
 echo "} else {"
 echo "/** MySQL hostname */"
-echo "('DB_HOST', 'localhost'); }"
+echo "define('DB_HOST', 'localhost'); }"
 echo
 echo "- 2. Set a cron to run 33 */12 * * * /web/wpupdate.sh >> /web/wpupdate.log"
 echo
