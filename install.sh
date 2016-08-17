@@ -7,7 +7,7 @@ touch wpupdate.log
 
 echo "Writing update script to file"
 cat <<'EOF' >wpupdate.sh
-!/bin/bash
+#!/bin/bash
 timestamp() {
   date "+DATE: %D TIME: %r %Z"
 }
